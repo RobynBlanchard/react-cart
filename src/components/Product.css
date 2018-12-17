@@ -1,7 +1,25 @@
-.container {
+.card {
   padding: 1em;
 }
 
-.card {
-  height: 200px
+.image{
+  height: 290px;
+  width: 290px;
+}
+
+.image > img {
+  position: absolute;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  top: 0;  /*Centering the image*/
+  bottom: 0;    /*Centering the image*/
+  left: 0;   /*Centering the image*/
+  right: 0;   /*Centering the image*/
+  margin: auto;
+}
+
+.ui.card>.image:not(.ui)>img {
+  height: 100%;
 }
