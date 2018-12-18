@@ -1,3 +1,10 @@
+SPA
+
+TODO
+- pass cart state back to parent
+- finish cart impelementation
+- implement redux
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
