@@ -21,7 +21,7 @@ class Product extends React.Component {
       <div class="ui card">
         <div class="image image">
           <img
-            src={require(`../assets/${this.props.product.imageURL}`)}
+            src={`../assets/${this.props.product.imageURL}`}
             alt={this.props.imageURL}
           />
         </div>
