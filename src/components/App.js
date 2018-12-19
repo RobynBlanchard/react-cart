@@ -7,7 +7,13 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class App extends React.Component {
-  state = { products: testData, cart: ['product 1', 'product 2'] };
+  state = { products: testData, cart: [{title: 'A bag', price:1900, imageURL:'bag.jpg'}] };
+
+  updateCart = (value) => {
+    this.setState(prevState => ({
+      cart: [...prevState.cart, value]
+    }))
+  }
 
   render() {
     return (
@@ -16,11 +22,11 @@ class App extends React.Component {
           <NavBar />
           <Route
             path="/products"
-            render={() => <ProductList products={this.state.products} />}
+            render={() => <ProductList products={this.state.products} updateCart={this.updateCart}/>}
           />
           <Route
             path="/cart"
-            render={() => <Cart products={this.state.cart} />}
+            render={() => <Cart items={this.state.cart}/>}
           />
         </div>
       </Router>

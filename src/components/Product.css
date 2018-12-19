@@ -23,3 +23,5 @@
 .ui.card>.image:not(.ui)>img {
   height: 100%;
 }
+
+button { cursor:pointer; }

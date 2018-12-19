@@ -6,11 +6,14 @@ const printPrice = price => {
   return `£${fractionalPrice.toFixed(2)}`;
 };
 
-// change to class and have state of added or
 
 class Product extends React.Component {
-  addToCart = () => {
-    console.log('Added')
+  // addToCart = () => {
+  //   console.log('Added')
+  // }
+
+  handleClick = (event) => {
+    this.props.updateParent(this.props.product);
   }
 
   render() {
@@ -31,9 +34,12 @@ class Product extends React.Component {
         </div>
         <div class="extra content">
           <span class="left floated plus">
-            <i onClick={this.addToCart} class="plus icon" />
+          <button onClick={this.handleClick}>
+
+            <i  class="plus icon" />
 
             Add to cart
+          </button>
             {/* pass state up when cart icon clicked or after each product clicked? */}
           </span>
           <span class="right floated star">

@@ -1,10 +1,12 @@
 import React from 'react';
+import CartList from './CartList';
 
 class Cart extends React.Component {
+
   render() {
     return(
       <div>
-        Cart {this.props.products}
+        <CartList items={this.props.items}/>
       </div>
     )
   }

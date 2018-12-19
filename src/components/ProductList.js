@@ -2,11 +2,24 @@ import './ProductList.css';
 import Product from './Product';
 import React from 'react'
 
-const ProductList = (props) => {
-  const images = props.products.map((product) => {
-    return <Product  product={product}/>;
-  });
-  return <div className="product-list"> {images}</div>;
+class ProductList extends React.Component {
+
+
+  updateParent = (value) => {
+    this.props.updateCart(value);
+    // console.log(value);
+  }
+
+  render() {
+    const images = this.props.products.map((product) => {
+      return <Product  product={product} updateParent={this.updateParent}/>
+    });
+    return(
+      <div className="product-list"> {images}</div>
+    )
+  }
+
+
 }
 
 export default ProductList;
