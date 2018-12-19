@@ -1,9 +1,20 @@
+.parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: stretch;
+  border-bottom: 1px solid grey
+}
 
-/* .cart.item {
-  height: 150px
-} */
+.child {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
 
-#left-btn, #right-btn {
-  display:inline-block;
-
+img {
+  width: 130px;
+  height: 110px;
 }

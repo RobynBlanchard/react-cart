@@ -11,8 +11,39 @@ class CartItem extends React.Component {
 
   render() {
     return(
-      <div class="cart item">
-        <div class="ui small image">
+      <div class="parent">
+        <div class="child">
+          <img
+            src={`../assets/${this.props.item.imageURL}`}
+            alt={this.props.imageURL}
+          />
+        </div>
+
+        <div class="child">
+          {this.props.item.title}
+        </div>
+
+        <div class="child">
+        <button class="button"  id="left-btn">
+                <i class="plus icon" />
+            </button>
+            <button class="button"  id="right-btn">
+              <i class="minus icon" />
+            </button>
+        </div>
+
+        <div class="child">
+          {this.formatPrice(this.props.item.price)}
+        </div>
+      </div>
+    )
+  }
+};
+
+export default CartItem;
+
+
+        /* <div class="ui small image">
         <img src={require(`../assets/${this.props.item.imageURL}`)}
             alt={this.props.imageURL}></img>
         </div>
@@ -38,12 +69,6 @@ class CartItem extends React.Component {
           </div>
         </div>
       </div>
+    */
 
 
-
-
-    )
-  }
-};
-
-export default CartItem;
