@@ -1,38 +1,51 @@
-import React from 'react';
-import NavBar from './NavBar';
-import Cart from './Cart';
-import ProductList from './ProductList';
-import testData from '.././testData';
-import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import React from "react";
+import NavBar from "./NavBar";
+import Cart from "./Cart";
+import ProductList from "./ProductList";
+import testData from ".././testData";
+import "./App.css";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends React.Component {
   state = {
     products: testData,
-    cart: [{
-      product: {
-        title: 'A bag',
-        price: 1900,
-        imageURL: 'bag.jpg'
-      },
-      quantity: 0
-      }]
+    cart: [
+      {
+        product: {
+          title: "A bag",
+          price: 1900,
+          imageURL: "bag.jpg"
+        },
+        quantity: 1
+      }
+    ]
   };
 
-  updateCart = value => {
-    const present = this.state.cart.indexOf(value)
-    if (present) {
-      this.setState(prevState => ({
-        ...prevState.cart.value.quantity += 1
-      }));
-    }
+  updateCart = product => {
+    this.setState(prevState => {
+      let newCart;
 
-    this.setState(prevState => ({
-      cart: [...prevState.cart, {product: value, quantity: 1}]
-    }));
-    console.log(this.state.cart)
+      prevState.cart.forEach(el => {
+        if (product === el.product) {
+          const newObj = {
+            product,
+            quantity: (el.quantity += 1)
+          };
+          const index = prevState.cart.indexOf(el);
+          newCart = prevState.cart;
+          newCart[index] = newObj;
+          console.log("product already there", newCart);
+          
+        }
+      });
+
+      if (!newCart) {
+        newCart = [...prevState.cart, { product: product, quantity: 1 }];
+        console.log("new product not already there", newCart);
+      }
+      return { cart: newCart };
+    });
   };
-  // TO Continue
 
   render() {
     return (
