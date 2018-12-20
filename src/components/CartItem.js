@@ -9,6 +9,13 @@ class CartItem extends React.Component {
     return `£${fractionalPrice.toFixed(2)}`;
   }
 
+  handleClick = (event) => {
+    // this.props.updateParent(this.props.item.product);
+    const operation = event.target.value;
+    this.props.updateCart(this.props.item.product, operation)
+    // debugger
+  }
+
   render() {
     return(
       <div class="parent">
@@ -24,13 +31,15 @@ class CartItem extends React.Component {
         </div>
 
         <div class="child">
-        <button class="button"  id="left-btn">
-                <i class="plus icon" />
-            </button>
-            {this.props.item.quantity}
-            <button class="button"  id="right-btn">
-              <i class="minus icon" />
-            </button>
+        <input type="button" onClick={(e => this.handleClick(e))} value="-" /> 
+          {/* <button class="button"  id="right-btn" onClick={this.handleClick} value='-'>
+            <i class="minus icon" />
+          </button> */}
+          {this.props.item.quantity}
+          <input type="button" onClick={(e => this.handleClick(e))} value="+" /> 
+          {/* <button class="button"  id="left-btn" onClick={this.handleClick(this.value)} value='+'>
+              <i class="plus icon" />
+          </button> */}
         </div>
 
         <div class="child">

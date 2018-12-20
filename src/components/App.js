@@ -21,19 +21,33 @@ class App extends React.Component {
     ]
   };
 
-  updateCart = product => {
+  // easier to just push into array and count number of each unique product...
+
+  updateCart = (product, operation="+") => {
+    console.log(product)
+    console.log(operation)
+
     this.setState(prevState => {
       let newCart;
 
       prevState.cart.forEach(el => {
         if (product === el.product) {
-          const newObj = {
-            product,
-            quantity: (el.quantity += 1)
-          };
-          const index = prevState.cart.indexOf(el);
-          newCart = prevState.cart;
-          newCart[index] = newObj;
+          if (operation === "-" && el.quantity === 1) {
+            const index = prevState.cart.indexOf(el);
+            newCart = prevState.cart;
+
+            newCart.splice(index, 1);
+          } else {
+             
+            const newObj = {
+              product,
+              quantity: operation === "-" ? (el.quantity -= 1) : (el.quantity += 1)
+            };
+            const index = prevState.cart.indexOf(el);
+            newCart = prevState.cart;
+            newCart[index] = newObj;
+
+          }
           console.log("product already there", newCart);
           
         }
@@ -61,7 +75,7 @@ class App extends React.Component {
               />
             )}
           />
-          <Route path="/cart" render={() => <Cart items={this.state.cart} />} />
+          <Route path="/cart" render={() => <Cart items={this.state.cart} updateCart={this.updateCart}/>} />
         </div>
       </Router>
     );
