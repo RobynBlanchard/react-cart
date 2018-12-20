@@ -1,7 +1,7 @@
 SPA
 
 TODO
-- pass cart state back to parent
+- Add subtotal price of items
 - finish cart impelementation
 - implement redux
 - call product api

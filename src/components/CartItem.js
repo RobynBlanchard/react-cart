@@ -43,7 +43,7 @@ class CartItem extends React.Component {
         </div>
 
         <div class="child">
-          {this.formatPrice(this.props.item.product.price)}
+          {this.formatPrice(this.props.item.product.price * this.props.item.quantity) }
         </div>
       </div>
     )
