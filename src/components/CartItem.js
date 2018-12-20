@@ -27,6 +27,7 @@ class CartItem extends React.Component {
         <button class="button"  id="left-btn">
                 <i class="plus icon" />
             </button>
+            1
             <button class="button"  id="right-btn">
               <i class="minus icon" />
             </button>

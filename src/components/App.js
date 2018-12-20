@@ -7,13 +7,32 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class App extends React.Component {
-  state = { products: testData, cart: [{title: 'A bag', price:1900, imageURL:'bag.jpg'}] };
+  state = {
+    products: testData,
+    cart: [{
+      product: {
+        title: 'A bag',
+        price: 1900,
+        imageURL: 'bag.jpg'
+      },
+      quantity: 0
+      }]
+  };
 
-  updateCart = (value) => {
+  updateCart = value => {
+    const present = this.state.cart.indexOf(value)
+    if (present) {
+      this.setState(prevState => ({
+        ...prevState.cart.value.quantity += 1
+      }));
+    }
+
     this.setState(prevState => ({
-      cart: [...prevState.cart, value]
-    }))
-  }
+      cart: [...prevState.cart, {product: value, quantity: 1}]
+    }));
+    console.log(this.state.cart)
+  };
+  // TO Continue
 
   render() {
     return (
@@ -22,12 +41,14 @@ class App extends React.Component {
           <NavBar />
           <Route
             path="/products"
-            render={() => <ProductList products={this.state.products} updateCart={this.updateCart}/>}
+            render={() => (
+              <ProductList
+                products={this.state.products}
+                updateCart={this.updateCart}
+              />
+            )}
           />
-          <Route
-            path="/cart"
-            render={() => <Cart items={this.state.cart}/>}
-          />
+          <Route path="/cart" render={() => <Cart items={this.state.cart} />} />
         </div>
       </Router>
     );
