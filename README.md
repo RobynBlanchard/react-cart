@@ -1,11 +1,12 @@
 SPA
 
 TODO
-- Add subtotal price of items
-- finish cart impelementation
+- show number of products on cart icon or highlight cart icon when item added
+- Styling
 - implement redux
 - call product api
 - show loading spinner etc.
+- Extra - favourites
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
