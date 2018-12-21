@@ -2,6 +2,8 @@ SPA
 
 TODO
 - show number of products on cart icon or highlight cart icon when item added
+- Mobile friendly
+- Local storage
 - Styling
 - implement redux
 - call product api
