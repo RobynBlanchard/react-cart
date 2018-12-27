@@ -1,23 +1,23 @@
 import React from "react";
 import CartItem from "./CartItem";
+import CartHeading from "./CartHeading";
 
 class CartList extends React.Component {
-  // updateParent = (value) => {
-  //   this.props.updateCart(value);
-  //   // console.log(value);
-  // }
-
   updateCart = (product, operation) => {
-    // console.log(product);
-    // console.log(operation);
     this.props.updateCart(product, operation);
-  }
+  };
 
   render() {
     const cartItems = this.props.items.map(item => {
-      return <CartItem item={item} updateCart={this.updateCart}/>;
+      return <CartItem item={item} updateCart={this.updateCart} />;
     });
-    return <div class="ui items">{cartItems}</div>;
+    
+    return (
+      <div>
+        <CartHeading />
+        <div class="ui items">{cartItems}</div>
+      </div>
+    );
   }
 }
 

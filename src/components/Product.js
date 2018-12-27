@@ -1,20 +1,11 @@
-import React from 'react';
-import './Product.css';
-
-const printPrice = price => {
-  const fractionalPrice = price / 100;
-  return `£${fractionalPrice.toFixed(2)}`;
-};
-
+import React from "react";
+import "./Product.css";
+import { printPrice } from './utils';
 
 class Product extends React.Component {
-  // addToCart = () => {
-  //   console.log('Added')
-  // }
-
-  handleClick = (event) => {
+  handleClick = event => {
     this.props.updateParent(this.props.product);
-  }
+  };
 
   render() {
     return (
@@ -34,13 +25,10 @@ class Product extends React.Component {
         </div>
         <div class="extra content">
           <span class="left floated plus">
-          <button onClick={this.handleClick}>
-
-            <i  class="plus icon" />
-
-            Add to cart
-          </button>
-            {/* pass state up when cart icon clicked or after each product clicked? */}
+            <button onClick={this.handleClick}>
+              <i class="plus icon" />
+              Add to cart
+            </button>
           </span>
           <span class="right floated star">
             <i class="star icon" />
@@ -50,6 +38,6 @@ class Product extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default Product;

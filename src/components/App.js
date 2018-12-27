@@ -4,7 +4,7 @@ import Cart from "./Cart";
 import ProductList from "./ProductList";
 import testData from ".././testData";
 import "./App.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
   state = {
@@ -21,50 +21,41 @@ class App extends React.Component {
     ]
   };
 
-  // easier to just push into array and count number of each unique product...
-
-  updateCart = (product, operation="+") => {
-    console.log(product)
-    console.log(operation)
-
+  updateCart = (product, operation = ">") => {
     this.setState(prevState => {
-      let newCart;
+      let updatedCart;
 
       prevState.cart.forEach(el => {
         if (product === el.product) {
-          if (operation === "-" && el.quantity === 1) {
+          if (operation === "<" && el.quantity === 1) {
             const index = prevState.cart.indexOf(el);
-            newCart = prevState.cart;
+            updatedCart = prevState.cart;
 
-            newCart.splice(index, 1);
+            updatedCart.splice(index, 1);
           } else {
-             
-            const newObj = {
+            const updatedProduct = {
               product,
-              quantity: operation === "-" ? (el.quantity -= 1) : (el.quantity += 1)
+              quantity:
+                operation === "<" ? (el.quantity -= 1) : (el.quantity += 1)
             };
             const index = prevState.cart.indexOf(el);
-            newCart = prevState.cart;
-            newCart[index] = newObj;
-
+            updatedCart = prevState.cart;
+            updatedCart[index] = updatedProduct;
           }
-          console.log("product already there", newCart);
-          
         }
       });
 
-      if (!newCart) {
-        newCart = [...prevState.cart, { product: product, quantity: 1 }];
-        console.log("new product not already there", newCart);
+      if (!updatedCart) {
+        updatedCart = [...prevState.cart, { product: product, quantity: 1 }];
       }
-      return { cart: newCart };
+      return { cart: updatedCart };
     });
   };
 
   render() {
     return (
       <Router>
-        <div className="ui container">
+        <div className="ui container" id="app">
           <NavBar />
           <Route
             path="/products"
@@ -75,7 +66,12 @@ class App extends React.Component {
               />
             )}
           />
-          <Route path="/cart" render={() => <Cart items={this.state.cart} updateCart={this.updateCart}/>} />
+          <Route
+            path="/cart"
+            render={() => (
+              <Cart items={this.state.cart} updateCart={this.updateCart} />
+            )}
+          />
         </div>
       </Router>
     );

@@ -18,7 +18,7 @@ class Cart extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="whole-cart">
         <CartList items={this.props.items} updateCart={this.updateCart}/>
         <CartSummary totalPrice={this.totalPrice()} />
       </div>

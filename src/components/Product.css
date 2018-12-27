@@ -13,10 +13,10 @@
   max-width: 100%;
   width: auto;
   height: auto;
-  top: 0;  /*Centering the image*/
-  bottom: 0;    /*Centering the image*/
-  left: 0;   /*Centering the image*/
-  right: 0;   /*Centering the image*/
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin: auto;
 }
 

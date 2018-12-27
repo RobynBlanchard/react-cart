@@ -1,10 +1,6 @@
 import React from "react";
 import "./CartSummary.css";
-
-const printPrice = price => {
-  const fractionalPrice = price / 100;
-  return `£${fractionalPrice.toFixed(2)}`;
-};
+import { printPrice } from './utils';
 
 const CartSummary = props => {
   return (
