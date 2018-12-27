@@ -9,6 +9,8 @@ TODO
 - call product api
 - show loading spinner etc.
 - Extra - favourites
+- SSR
+- CSR implementation
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
