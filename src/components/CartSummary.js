@@ -1,16 +1,17 @@
-import React from 'react'
+import React from "react";
+import "./CartSummary.css";
 
 const printPrice = price => {
   const fractionalPrice = price / 100;
   return `£${fractionalPrice.toFixed(2)}`;
 };
 
-const CartSummary = (props) => {
+const CartSummary = props => {
   return (
-    <div>
-      {printPrice(props.totalPrice)}
+    <div className="cart-summary">
+      Total price (excluding delivery): {printPrice(props.totalPrice)}
     </div>
-  )
-}
+  );
+};
 
-export default CartSummary
+export default CartSummary;

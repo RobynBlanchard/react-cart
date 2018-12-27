@@ -26,20 +26,14 @@ class CartItem extends React.Component {
           />
         </div>
 
-        <div class="child">
+        <div class="child" id="title-div">
           {this.props.item.product.title}
         </div>
 
         <div class="child">
         <input type="button" onClick={(e => this.handleClick(e))} value="-" /> 
-          {/* <button class="button"  id="right-btn" onClick={this.handleClick} value='-'>
-            <i class="minus icon" />
-          </button> */}
           {this.props.item.quantity}
           <input type="button" onClick={(e => this.handleClick(e))} value="+" /> 
-          {/* <button class="button"  id="left-btn" onClick={this.handleClick(this.value)} value='+'>
-              <i class="plus icon" />
-          </button> */}
         </div>
 
         <div class="child">

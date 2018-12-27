@@ -4,10 +4,11 @@
   justify-content: space-between;
   width: 100%;
   align-items: stretch;
-  border-bottom: 1px solid lightgrey
+  border-bottom: 1px solid lightgrey;
 }
 
 .child {
+  justify-content: center;
   height: 150px;
   display: flex;
   align-items: center;
@@ -17,4 +18,8 @@
 img {
   width: 130px;
   height: 110px;
+}
+
+#title-div {
+  justify-content: left
 }
