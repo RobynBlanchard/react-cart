@@ -1,8 +1,9 @@
 import React from "react";
 import "./Product.css";
-import { printPrice } from './utils';
+import { printPrice } from "./utils";
 
 class Product extends React.Component {
+  
   handleClick = event => {
     this.props.updateParent(this.props.product);
   };

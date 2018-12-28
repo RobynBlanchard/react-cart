@@ -1,17 +1,48 @@
 import "./ProductList.css";
 import Product from "./Product";
 import React from "react";
+import testData from ".././testData";
+import { fetchProducts } from "../fetchProducts";
+import { USING_AWS_API } from "../config";
 
 class ProductList extends React.Component {
+  state = {
+    products: []
+  };
+
+  componentDidMount() {
+    if (USING_AWS_API) {
+      const products = fetchProducts();
+      products
+        .then(response => {
+          // Match structure of api data and mock data
+          const fetchedProducts = response.data.Items.map(item => {
+            return {
+              imageURL: item.imageURL.S,
+              price: parseInt(item.price.N),
+              productID: parseInt(item.productID.N),
+              title: item.title.S
+            };
+          });
+          this.setState({ products: fetchedProducts });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } else {
+      this.setState({ products: testData });
+    }
+  }
+
   updateParent = value => {
     this.props.updateCart(value);
   };
 
   render() {
-    const images = this.props.products.map(product => {
+    const productList = this.state.products.map(product => {
       return <Product product={product} updateParent={this.updateParent} />;
     });
-    return <div className="product-list"> {images}</div>;
+    return <div className="product-list"> {productList}</div>;
   }
 }
 

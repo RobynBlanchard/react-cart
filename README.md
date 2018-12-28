@@ -12,6 +12,8 @@ TODO
 - SSR
 - CSR implementation
 - Quantity editable directly 
+- update README to explain how it is using the product API (diagram)
+- Fix first product looking funny
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

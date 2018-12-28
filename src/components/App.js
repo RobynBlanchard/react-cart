@@ -2,13 +2,12 @@ import React from "react";
 import NavBar from "./NavBar";
 import Cart from "./Cart";
 import ProductList from "./ProductList";
-import testData from ".././testData";
+
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
   state = {
-    products: testData,
     cart: [
       {
         product: {
@@ -61,7 +60,6 @@ class App extends React.Component {
             path="/products"
             render={() => (
               <ProductList
-                products={this.state.products}
                 updateCart={this.updateCart}
               />
             )}
