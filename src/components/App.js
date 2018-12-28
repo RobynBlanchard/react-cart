@@ -51,11 +51,16 @@ class App extends React.Component {
     });
   };
 
+  quantityOfProducts = () => {
+    const quantityObj = this.state.cart.reduce((a, b) => ({quantity: a.quantity + b.quantity}));
+    return quantityObj.quantity;
+  };
+
   render() {
     return (
       <Router>
         <div className="ui container" id="app">
-          <NavBar />
+          <NavBar productCount={this.quantityOfProducts()}/>
           <Route
             path="/products"
             render={() => (

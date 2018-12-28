@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <div class="ui menu">
       <Link to="/products">
@@ -11,7 +11,7 @@ const NavBar = () => {
       <div class="right menu">
         <Link to="/cart">
           <a class="item">
-            <i class="shop icon" />
+            <i class="shop icon" /><span label="product count">{props.productCount}</span>
           </a>
         </Link>
         <a class="item">Favourites</a>
