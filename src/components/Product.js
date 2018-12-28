@@ -9,6 +9,7 @@ class Product extends React.Component {
   
   handleClick = event => {
     this.props.updateParent(this.props.product);
+    // TODO instead of passing product pass new product with image??
   };
 
   componentDidMount() {
@@ -47,7 +48,7 @@ class Product extends React.Component {
         </div>
         <div class="extra content">
           <span class="left floated plus">
-            <button onClick={this.handleClick}>
+            <button onClick={this.handleClick} class="something">
               <i class="plus icon" />
               Add to cart
             </button>

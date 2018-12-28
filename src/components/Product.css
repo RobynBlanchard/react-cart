@@ -25,3 +25,17 @@
 }
 
 button { cursor:pointer; }
+
+.something {
+  background:none;
+  border:none;
+  cursor: pointer;
+  color: grey;
+}
+
+
+.something:hover > i.icon.plus {
+  color: black;
+}
+
+.something:focus {outline:0;}
