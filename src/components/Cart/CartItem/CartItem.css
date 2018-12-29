@@ -39,3 +39,15 @@ input[type = "button"]:hover {
 }
 
 input[type = "button"]:focus {outline:0;}
+
+/* .ui.card:first-child , .row:not(:first-child) {
+  /* margin-top: ; */
+  /* margin: 0px !important; 
+  padding: 0px !important  */
+  /* margin: 0px */
+  /* needs unsetting to fix bug */
+/* } */ 
+
+/* .ui.card:first-child {
+  margin-top: 0em;
+} */

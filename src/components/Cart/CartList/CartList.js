@@ -1,6 +1,6 @@
 import React from "react";
-import CartItem from "./CartItem";
-import CartHeading from "./CartHeading";
+import CartItem from "../CartItem/CartItem";
+import CartHeading from "../CartHeading/CartHeading";
 
 class CartList extends React.Component {
   updateCart = (product, operation) => {

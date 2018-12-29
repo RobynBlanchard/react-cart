@@ -1,7 +1,7 @@
 import React from "react";
 import "./Product.css";
-import { printPrice } from "./utils";
-import { USING_AWS_API, REACT_APP_AWS_ACCESS_KEY, REACT_APP_AWS_SECRET_KEY } from "../config";
+import { printPrice } from "./../../../utils";
+import { USING_AWS_API, REACT_APP_AWS_ACCESS_KEY, REACT_APP_AWS_SECRET_KEY } from "../../../config";
 import AWS from 'aws-sdk';
 
 class Product extends React.Component {

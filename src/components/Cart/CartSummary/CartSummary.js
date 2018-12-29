@@ -1,6 +1,6 @@
 import React from "react";
 import "./CartSummary.css";
-import { printPrice } from './utils';
+import { printPrice } from '../../../utils';
 
 const CartSummary = props => {
   return (

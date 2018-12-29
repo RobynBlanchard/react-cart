@@ -1,9 +1,9 @@
 import "./ProductList.css";
-import Product from "./Product";
+import Product from "../Product/Product";
 import React from "react";
-import testData from ".././testData";
-import { fetchProducts } from "../fetchProducts";
-import { USING_AWS_API } from "../config";
+import testData from "../../../testData";
+import { fetchProducts } from "../../../fetchProducts";
+import { USING_AWS_API } from "../../../config";
 
 class ProductList extends React.Component {
   state = {

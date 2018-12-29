@@ -1,7 +1,7 @@
 import React from "react";
-import NavBar from "./NavBar";
-import Cart from "./Cart";
-import ProductList from "./ProductList";
+import NavBar from "./NavBar/NavBar";
+import Cart from "../Cart/Cart";
+import ProductList from "../Product/ProductList/ProductList";
 
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
