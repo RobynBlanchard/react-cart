@@ -48,7 +48,7 @@ class Product extends React.Component {
         </div>
         <div class="extra content">
           <span class="left floated plus">
-            <button onClick={this.handleClick} class="something">
+            <button onClick={this.handleClick} class="add-to-cart">
               <i class="plus icon" />
               Add to cart
             </button>
