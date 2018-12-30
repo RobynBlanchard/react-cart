@@ -4,7 +4,6 @@ TODO
 - implement redux
 - Tests
 - show loading spinner etc.
-- Fix first product looking funny
 - Mobile friendly
 - Local storage
 - Styling

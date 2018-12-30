@@ -7,6 +7,10 @@
   width: 290px;
 }
 
+.ui.card:first-child {
+  margin-top: auto !important;
+}
+
 .image > img {
   position: absolute;
   max-height: 100%;
