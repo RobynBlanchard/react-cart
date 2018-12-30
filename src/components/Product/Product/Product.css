@@ -53,3 +53,7 @@ button {
 .add-to-cart:focus {
   outline: 0;
 }
+
+.ui.card [class*="right floated"]:hover > i.icon.star {
+  color: gold;
+}
