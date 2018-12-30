@@ -11,8 +11,25 @@ TODO
 - Extra - favourites
 - SSR
 - CSR implementation
-- Quantity editable directly 
+- Quantity editable directly
 - update README to explain how it is using the product API (diagram)
+
+## Description
+- A shopping cart SPA made using Create React App. It has two views, a product page and a cart page. The product page consumes eiher mock data or a Product API (https://github.com/RobynBlanchard/api-gateway-lambda-cloudformation) to display products.
+
+## Setup
+
+- Copy and rename config.js.dist to config.js
+
+### Using AWS Product API
+- Follow the steps in the README to deploy the API https://github.com/RobynBlanchard/api-gateway-lambda-cloudformation
+- Deploy the API and copy the API key and API URL into `config.js`
+- Set `USING_AWS_API` to `true`
+- Populate the rest of the credentials in `config.js`
+
+### Using mock data
+- Set `USING_AWS_API` to `false`
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
