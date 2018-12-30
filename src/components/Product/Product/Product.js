@@ -6,7 +6,7 @@ import AWS from 'aws-sdk';
 
 class Product extends React.Component {
   state = { image: '' };
-  
+
   handleClick = event => {
     this.props.updateParent(this.props.product);
     // TODO instead of passing product pass new product with image??
@@ -19,7 +19,7 @@ class Product extends React.Component {
         secretAccessKey: REACT_APP_AWS_SECRET_KEY,
         region: "eu-west-1",
       });
-  
+
       var params = { Bucket: 'product-api-images', Key: this.props.product.imageURL };
       s3.getSignedUrl('getObject', params, (err, url) => {
         if (err) console.log(err)

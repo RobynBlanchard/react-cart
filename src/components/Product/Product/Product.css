@@ -2,7 +2,7 @@
   padding: 1em;
 }
 
-.image{
+.image {
   height: 290px;
   width: 290px;
 }
@@ -24,22 +24,32 @@
   margin: auto;
 }
 
-.ui.card>.image:not(.ui)>img {
+.ui.card > .image:not(.ui) > img {
   height: 100%;
 }
 
-button { cursor:pointer; }
-
-.something {
-  background:none;
-  border:none;
+button {
   cursor: pointer;
-  color: grey;
 }
 
+.something, .ui.card [class*="right floated"] {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: grey;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 14px;
+}
+
+.ui.card > .content > .header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px !important;
+}
 
 .something:hover > i.icon.plus {
   color: black;
 }
 
-.something:focus {outline:0;}
+.something:focus {
+  outline: 0;
+}
