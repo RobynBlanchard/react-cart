@@ -24,7 +24,7 @@ TODO
 - Follow the steps in the README to deploy the API https://github.com/RobynBlanchard/api-gateway-lambda-cloudformation
 - Deploy the API and copy the API key and API URL into `config.js`
 - Set `USING_AWS_API` to `true`
-- Populate the rest of the credentials in `config.js`
+- Populate the rest of the credentials in `config.js` (to retrieve images hosted on S3)
 
 ### Using mock data
 - Set `USING_AWS_API` to `false`

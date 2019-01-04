@@ -3,7 +3,7 @@ import { AWS_PRODUCT_API_URL, AWS_PRODUCT_API_KEY } from "./config";
 
 export function fetchProducts() {
   return axios.get(
-    AWS_PRODUCT_API_URL,
+    AWS_PRODUCT_API_URL + '/products',
     {
       headers: {
         Accept: "application/json",
