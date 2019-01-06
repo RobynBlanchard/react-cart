@@ -34,13 +34,13 @@ class ProductList extends React.Component {
     }
   }
 
-  updateParent = value => {
+  handleCartUpdate = value => {
     this.props.updateCart(value);
   };
 
   render() {
     const productList = this.state.products.map(product => {
-      return <Product product={product} updateParent={this.updateParent} />;
+      return <Product product={product} updateCart={this.handleCartUpdate} />;
     });
     return <div className="product-list"> {productList}</div>;
   }

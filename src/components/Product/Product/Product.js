@@ -8,7 +8,7 @@ class Product extends React.Component {
   state = { image: '' };
 
   handleClick = event => {
-    this.props.updateParent(this.props.product);
+    this.props.updateCart(this.props.product);
     // TODO instead of passing product pass new product with image??
   };
 

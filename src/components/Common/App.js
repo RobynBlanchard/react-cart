@@ -8,45 +8,32 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
   state = {
-    cart: [
-      // {
-      //   product: {
-      //     title: "A bag",
-      //     price: 1900,
-      //     imageURL: "bag.jpg"
-      //   },
-      //   quantity: 1
-      // }
-    ]
+    cart: []
   };
 
   updateCart = (product, operation = ">") => {
     this.setState(prevState => {
-      let updatedCart;
+      let updatedCart = prevState.cart;
 
-      prevState.cart.forEach(el => {
-        if (product === el.product) {
-          if (operation === "<" && el.quantity === 1) {
-            const index = prevState.cart.indexOf(el);
-            updatedCart = prevState.cart;
+      let index = prevState.cart
+        .map(function(e) {
+          return e.product;
+        })
+        .indexOf(product);
 
-            updatedCart.splice(index, 1);
-          } else {
-            const updatedProduct = {
-              product,
-              quantity:
-                operation === "<" ? (el.quantity -= 1) : (el.quantity += 1)
-            };
-            const index = prevState.cart.indexOf(el);
-            updatedCart = prevState.cart;
-            updatedCart[index] = updatedProduct;
-          }
+      if (index === -1) {
+        updatedCart.push({ product: product, quantity: 1 })
+      } else {
+        if (operation === "<" && updatedCart[index].quantity === 1) {
+          updatedCart.splice(index, 1);
+        } else {
+          updatedCart[index] = {
+            product,
+            quantity: updatedCart[index].quantity + (operation === "<" ? -1 : 1)
+          };
         }
-      });
-
-      if (!updatedCart) {
-        updatedCart = [...prevState.cart, { product: product, quantity: 1 }];
       }
+
       return { cart: updatedCart };
     });
   };
@@ -55,7 +42,9 @@ class App extends React.Component {
     if (this.state.cart.length === 0) {
       return 0;
     }
-    const quantityObj = this.state.cart.reduce((a, b) => ({quantity: a.quantity + b.quantity}));
+    const quantityObj = this.state.cart.reduce((a, b) => ({
+      quantity: a.quantity + b.quantity
+    }));
     return quantityObj.quantity;
   };
 
@@ -63,14 +52,10 @@ class App extends React.Component {
     return (
       <Router>
         <div className="ui container" id="app">
-          <NavBar productCount={this.quantityOfProducts()}/>
+          <NavBar productCount={this.quantityOfProducts()} />
           <Route
             path="/products"
-            render={() => (
-              <ProductList
-                updateCart={this.updateCart}
-              />
-            )}
+            render={() => <ProductList updateCart={this.updateCart} />}
           />
           <Route
             path="/cart"
