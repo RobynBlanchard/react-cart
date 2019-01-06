@@ -9,14 +9,14 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 class App extends React.Component {
   state = {
     cart: [
-      {
-        product: {
-          title: "A bag",
-          price: 1900,
-          imageURL: "bag.jpg"
-        },
-        quantity: 1
-      }
+      // {
+      //   product: {
+      //     title: "A bag",
+      //     price: 1900,
+      //     imageURL: "bag.jpg"
+      //   },
+      //   quantity: 1
+      // }
     ]
   };
 
@@ -52,6 +52,9 @@ class App extends React.Component {
   };
 
   quantityOfProducts = () => {
+    if (this.state.cart.length === 0) {
+      return 0;
+    }
     const quantityObj = this.state.cart.reduce((a, b) => ({quantity: a.quantity + b.quantity}));
     return quantityObj.quantity;
   };
