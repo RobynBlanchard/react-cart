@@ -1,9 +1,9 @@
 import React from "react";
-import NavBar from "./NavBar/NavBar";
+import NavBar from "../NavBar";
 import Cart from "../Cart/Cart";
 import ProductList from "../Product/ProductList/ProductList";
 
-import "./App.css";
+import "./index.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
@@ -43,7 +43,7 @@ class App extends React.Component {
         };
       }
     }
-    
+
     return updatedCart;
   };
 
