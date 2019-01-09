@@ -22,29 +22,28 @@ class App extends React.Component {
     return quantityObj.quantity;
   };
 
-  updateCartItems = (prevState, product, operation) => {
-    let updatedCart = prevState.cart;
-
-    let index = prevState.cart
+  updateCartItems = ({ cart }, product, operation) => {
+    let index = cart
       .map(function(e) {
         return e.product;
       })
       .indexOf(product);
 
     if (index === -1) {
-      updatedCart.push({ product: product, quantity: 1 });
-    } else {
-      if (operation === "<" && updatedCart[index].quantity === 1) {
-        updatedCart.splice(index, 1);
-      } else {
-        updatedCart[index] = {
-          product,
-          quantity: updatedCart[index].quantity + (operation === "<" ? -1 : 1)
-        };
-      }
+      return [...cart, { product: product, quantity: 1 }];
     }
-
-    return updatedCart;
+    if (operation === "<" && cart[index].quantity === 1) {
+      return cart.filter(item => item.product !== product);
+    }
+    return cart.map(item => {
+      if (item.product !== product) {
+        return item
+      }
+      return {
+          product,
+          quantity: item.quantity + (operation === "<" ? -1 : 1)
+        }
+    });
   };
 
   handleCartUpdate = (product, operation = ">") => {
