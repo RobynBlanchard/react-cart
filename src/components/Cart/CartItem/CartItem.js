@@ -1,20 +1,18 @@
-import React from "react";
-import "./CartItem.css";
-import { printPrice } from "../../../utils";
+import React from 'react';
+import { connect } from 'react-redux';
+
+import './CartItem.css';
+import { printPrice } from '../../../utils';
+import { addToCart, removeFromCart } from '../../../actions';
 
 class CartItem extends React.Component {
-  handleClick = event => {
-    const operation = event.target.value;
-    this.props.updateCart(this.props.item.product, operation);
-  };
-
   render() {
     return (
       <div class="row">
         <div class="row-section">
           <img
-            src={`../assets/${this.props.item.product.imageURL}`}
-            alt={this.props.imageURL}
+            src={this.props.item.product.imageURL}
+            alt={this.props.item.imageURL}
           />
         </div>
 
@@ -23,12 +21,20 @@ class CartItem extends React.Component {
         </div>
 
         <div class="row-section">
-          <input type="button" onClick={e => this.handleClick(e)} value="<" />
+          <input
+            type="button"
+            onClick={() => this.props.removeFromCart(this.props.item.product)}
+            value="<"
+          />
           {this.props.item.quantity}
-          <input type="button" onClick={e => this.handleClick(e)} value=">" />
+          <input
+            type="button"
+            onClick={() => this.props.addToCart(this.props.item.product)}
+            value=">"
+          />
         </div>
 
-        <div class="row-section" id="price"> 
+        <div class="row-section" id="price">
           {printPrice(this.props.item.product.price * this.props.item.quantity)}
         </div>
       </div>
@@ -36,4 +42,7 @@ class CartItem extends React.Component {
   }
 }
 
-export default CartItem;
+export default connect(
+  null,
+  { addToCart, removeFromCart }
+)(CartItem);
