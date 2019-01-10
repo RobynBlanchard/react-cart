@@ -8,18 +8,18 @@ import { getCartQuantity } from '../../reducers';
 class NavBar extends React.Component {
   render() {
     return (
-      <div class="ui menu">
+      <div className="ui menu">
         <Link to="/products">
-          <a class="item">Browse products</a>
+          <a className="item">Browse products</a>
         </Link>
-        <div class="right menu">
+        <div className="right menu">
           <Link to="/cart">
-            <a class="item">
-              <i class="shop icon" />
+            <a className="item">
+              <i className="shop icon" />
               <span label="product count">{this.props.quantity}</span>
             </a>
           </Link>
-          <a class="item">Favourites</a>
+          <a className="item">Favourites</a>
         </div>
       </div>
     );

@@ -8,32 +8,32 @@ import { addToCart } from '../../../actions';
 class Product extends React.Component {
   render() {
     return (
-      <div class="ui card">
-        <div class="image image">
+      <div className="ui card">
+        <div className="image image">
           <img
             src={this.props.product.imageURL}
             alt={this.props.product.title}
           />
         </div>
-        <div class="content">
-          <span class="right floated">
-            <i class="extra content" />
+        <div className="content">
+          <span className="right floated">
+            <i className="extra content" />
             {printPrice(this.props.product.price)}
           </span>
-          <div class="header">{this.props.product.title}</div>
+          <div className="header">{this.props.product.title}</div>
         </div>
-        <div class="extra content">
-          <span class="left floated plus">
+        <div className="extra content">
+          <span className="left floated plus">
             <button
               onClick={() => this.props.addToCart(this.props.product)}
-              class="add-to-cart"
+              className="add-to-cart"
             >
-              <i class="plus icon" />
+              <i className="plus icon" />
               Add to cart
             </button>
           </span>
-          <span class="right floated star">
-            <i class="star icon" />
+          <span className="right floated star">
+            <i className="star icon" />
             Favorite
           </span>
         </div>

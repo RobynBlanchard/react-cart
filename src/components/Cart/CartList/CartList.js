@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import CartItem from '../CartItem/CartItem';
 import CartHeading from '../CartHeading/CartHeading';
-// import { getCart } from '../../../reducers';
 
 class CartList extends React.Component {
   render() {
