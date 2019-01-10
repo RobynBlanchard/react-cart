@@ -11,7 +11,9 @@ TODO
 - SSR
 - CSR implementation
 - Quantity editable directly
-- update README to explain how it is using the product API (diagram)
+- update README to explain how it is using the
+- product API (diagram)
+- Styled components
 
 ## Description
 - A shopping cart SPA made using Create React App. It has two views, a product page and a cart page. The product page consumes eiher mock data or a Product API (https://github.com/RobynBlanchard/api-gateway-lambda-cloudformation) to display products.
