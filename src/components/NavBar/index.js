@@ -9,17 +9,15 @@ class NavBar extends React.Component {
   render() {
     return (
       <div className="ui menu">
-        <Link to="/products">
-          <a className="item">Browse products</a>
+        <Link to="/products" className="item">
+          Browse products
         </Link>
         <div className="right menu">
-          <Link to="/cart">
-            <a className="item">
-              <i className="shop icon" />
-              <span label="product count">{this.props.quantity}</span>
-            </a>
+          <Link to="/cart" className="item">
+            <i className="shop icon" />
+            <span label="product count">{this.props.quantity}</span>
           </Link>
-          <a className="item">Favourites</a>
+          <div className="item">Favourites</div>
         </div>
       </div>
     );
