@@ -7,6 +7,7 @@ import {
 } from '../config';
 import AWS from 'aws-sdk';
 
+// TODO - try, catch
 export const fetchProductsAndImages = () => async (dispatchEvent, getState) => {
   await dispatchEvent(fetchProducts());
 
@@ -72,7 +73,7 @@ export const fetchImage = (url, productID) => {
       secretAccessKey: REACT_APP_AWS_SECRET_KEY,
       region: 'eu-west-1'
     });
-
+    // TODO make public
     var params = { Bucket: 'product-api-images', Key: url };
     s3.getSignedUrl('getObject', params, (err, fetchedUrl) => {
       if (err) {
