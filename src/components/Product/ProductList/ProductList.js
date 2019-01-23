@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 import './ProductList.css';
 import Product from '../Product/Product';
-import { fetchProductsAndImages } from '../../../actions';
+import { fetchProducts } from '../../../actions';
 
 class ProductList extends React.Component {
   componentDidMount() {
-    this.props.fetchProductsAndImages();
+    this.props.fetchProducts();
   }
 
   render() {
@@ -24,5 +24,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchProductsAndImages }
+  { fetchProducts }
 )(ProductList);

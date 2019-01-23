@@ -1,21 +1,6 @@
 import testData from '../testData';
 import { fetchProducts as getProducts } from '../fetchProducts';
-import {
-  USING_AWS_API,
-  REACT_APP_AWS_ACCESS_KEY,
-  REACT_APP_AWS_SECRET_KEY
-} from '../config';
-import AWS from 'aws-sdk';
-
-// TODO - try, catch
-export const fetchProductsAndImages = () => async (dispatchEvent, getState) => {
-  await dispatchEvent(fetchProducts());
-
-  const products = getState().products;
-  products.forEach(el => {
-    dispatchEvent(fetchImage(el.imageURL, el.productID));
-  });
-};
+import { USING_AWS_API } from '../config';
 
 export const fetchProducts = () => {
   if (!USING_AWS_API) {
@@ -56,37 +41,3 @@ export const removeFromCart = product => {
   };
 };
 
-export const fetchImage = (url, productID) => {
-  if (!USING_AWS_API) {
-    return {
-      type: 'FETCH_IMAGE',
-      payload: {
-        url: `../assets/${url}`,
-        productID
-      }
-    };
-  }
-
-  return async (dispatch, getState) => {
-    const s3 = new AWS.S3({
-      accessKeyId: REACT_APP_AWS_ACCESS_KEY,
-      secretAccessKey: REACT_APP_AWS_SECRET_KEY,
-      region: 'eu-west-1'
-    });
-    // TODO make public
-    var params = { Bucket: 'product-api-images', Key: url };
-    s3.getSignedUrl('getObject', params, (err, fetchedUrl) => {
-      if (err) {
-        console.log(err);
-      } else {
-        dispatch({
-          type: 'FETCH_IMAGE',
-          payload: {
-            url: fetchedUrl,
-            productID
-          }
-        });
-      }
-    });
-  };
-};
