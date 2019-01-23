@@ -8,19 +8,19 @@ import { addToCart, removeFromCart } from '../../../actions';
 class CartItem extends React.Component {
   render() {
     return (
-      <div class="row">
-        <div class="row-section">
+      <div className="row">
+        <div className="row-section">
           <img
             src={this.props.item.product.imageURL}
             alt={this.props.item.imageURL}
           />
         </div>
 
-        <div class="row-section" id="title-div">
+        <div className="row-section" id="title-div">
           {this.props.item.product.title}
         </div>
 
-        <div class="row-section">
+        <div className="row-section">
           <input
             type="button"
             onClick={() => this.props.removeFromCart(this.props.item.product)}
@@ -34,7 +34,7 @@ class CartItem extends React.Component {
           />
         </div>
 
-        <div class="row-section" id="price">
+        <div className="row-section" id="price">
           {printPrice(this.props.item.product.price * this.props.item.quantity)}
         </div>
       </div>

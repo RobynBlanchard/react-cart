@@ -13,7 +13,7 @@ class CartList extends React.Component {
     return (
       <div>
         <CartHeading />
-        <div class="ui items">{cartItems}</div>
+        <div className="ui items">{cartItems}</div>
       </div>
     );
   }
