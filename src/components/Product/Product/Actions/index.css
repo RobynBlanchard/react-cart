@@ -1,0 +1,24 @@
+button {
+  cursor: pointer;
+}
+
+.add-to-cart, [class*="right floated"] {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: grey;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 14px;
+}
+
+.add-to-cart:hover > i.icon.plus {
+  color: black;
+}
+
+.add-to-cart:focus {
+  outline: 0;
+}
+
+.extra.content [class*="right floated"]:hover > i.star.icon {
+  color: gold;
+}
