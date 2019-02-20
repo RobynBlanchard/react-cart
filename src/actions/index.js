@@ -1,11 +1,12 @@
 import testData from '../testData';
 import { fetchProducts as getProducts } from '../fetchProducts';
 import { USING_AWS_API } from '../config';
+import { FETCH_PRODUCTS, ADD_TO_CART, REMOVE_FROM_CART } from './types';
 
 export const fetchProducts = () => {
   if (!USING_AWS_API) {
     return {
-      type: 'FETCH_PRODUCTS',
+      type: FETCH_PRODUCTS,
       payload: testData
     };
   }
@@ -23,20 +24,20 @@ export const fetchProducts = () => {
       };
     });
 
-    dispatch({ type: 'FETCH_PRODUCTS', payload: mappedResponse });
+    dispatch({ type: FETCH_PRODUCTS, payload: mappedResponse });
   };
 };
 
 export const addToCart = product => {
   return {
-    type: 'ADD_TO_CART',
+    type: ADD_TO_CART,
     payload: product
   };
 };
 
 export const removeFromCart = product => {
   return {
-    type: 'REMOVE_FROM_CART',
+    type: REMOVE_FROM_CART,
     payload: product
   };
 };

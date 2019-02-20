@@ -1,3 +1,5 @@
+import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/types';
+
 const updateQuantity = (operation, state, product) => {
   return state.map(item => {
     if (item.product !== product) {
@@ -18,14 +20,14 @@ export default(state=[], action) => {
   .indexOf(action.payload);
 
   switch (action.type) {
-    case 'ADD_TO_CART':
+    case ADD_TO_CART:
       if (index === -1) {
         return [...state, { product: action.payload, quantity: 1 }];
       }
       return updateQuantity('increase', state, action.payload)
 
 
-    case 'REMOVE_FROM_CART':
+    case REMOVE_FROM_CART:
       if (state[index].quantity === 1) {
         return state.filter(item => item.product !== action.payload);
       }
