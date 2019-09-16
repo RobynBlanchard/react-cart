@@ -1,7 +1,7 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/types';
 
-const updateQuantity = (operation, state, product) => {
-  return state.map(item => {
+const updateQuantity = (operation, state, product) =>
+  state.map(item => {
     if (item.product !== product) {
       return item
     }
@@ -10,7 +10,7 @@ const updateQuantity = (operation, state, product) => {
         quantity: item.quantity + (operation === 'increase' ? 1 : -1)
       }
   });
-}
+
 
 export default(state=[], action) => {
   let index = state

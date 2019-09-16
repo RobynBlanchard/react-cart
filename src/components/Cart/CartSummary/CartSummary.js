@@ -2,10 +2,10 @@ import React from "react";
 import "./CartSummary.css";
 import { printPrice } from '../../../utils';
 
-const CartSummary = props => {
+const CartSummary = ({totalPrice}) => {
   return (
     <div className="cart-summary">
-      Total price (excluding delivery): {printPrice(props.totalPrice)}
+      Total price (excluding delivery): {printPrice(totalPrice)}
     </div>
   );
 };
